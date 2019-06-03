@@ -12,19 +12,19 @@ end
 
 describe '.new' do
   it 'creates a new bookmark title' do
-    bookmark = Bookmark.new('Google', 'http://google.com')
-    expect(bookmark.title).to eq('Google')
+    bookmark = Bookmark.new(1, 'http://google.com')
+    expect(bookmark.id).to eq(1)
   end
 
   it 'creates a new bookmark url' do
-    bookmark = Bookmark.new('Google', 'http://google.com')
+    bookmark = Bookmark.new(1, 'http://google.com')
     expect(bookmark.url).to eq('http://google.com')
   end
 end
 
 describe '#to_s' do
   it 'converts element to string' do
-    bookmark = Bookmark.new('Google', 'http://google.com')
-    expect(bookmark.to_s).to eq("Google http://google.com")
+    bookmark = Bookmark.new(1, 'http://google.com')
+    expect(bookmark.to_s).to eq("1 http://google.com")
   end
 end

@@ -1,16 +1,20 @@
-class Bookmark
-  attr_reader :title, :url
+require 'pg'
 
-  def initialize(title, url)
-    @title = title
+class Bookmark
+  attr_reader :id, :url
+
+  def initialize(id, url)
+    @id = id
     @url = url
   end
 
   def self.all
-    [ Bookmark.new('Google', 'http://google.com'), Bookmark.new('Nomnoml', 'http://nomnoml.com'), Bookmark.new('Trello', 'http://trello.com') ]
+    connection = PG.connect( dbname: 'bookmark_manager')
+    result = connection.exec( "SELECT * FROM bookmarks" )
+    result.map { |bookmark| Bookmark.new(bookmark['id'], bookmark['url']) }
   end
 
   def to_s
-    "#{@title} #{@url}"
+    "#{@id} #{@url}"
   end
 end
