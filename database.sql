@@ -1,0 +1,7 @@
+CREATE DATABASE bookmark_manager WITH ENCODING 'UTF8';
+
+
+CREATE TABLE bookmarks (
+  id SERIAL PRIMARY KEY, 
+  url VARCHAR(60)
+);
