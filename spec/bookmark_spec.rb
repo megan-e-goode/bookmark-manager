@@ -11,7 +11,8 @@ describe '.all' do
   end
 
   it 'gets the bookmarks from the db' do
-    connection = PG.connect(dbname: 'bookmark_manager')
+    connection = PG.connect(dbname: 'bookmark_manager_test')
+    connection.exec("INSERT INTO bookmarks(url) VALUES('http://www.makersacademy.com')")
     result = connection.exec( "SELECT * FROM bookmarks" )
     expect(result[0]['url']).to include("http://www.makersacademy.com")
   end
