@@ -15,6 +15,6 @@ class Bookmark
   end
 
   def to_s
-    "#{@id} #{@url}"
+    "#{@url}"
   end
 end

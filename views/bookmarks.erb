@@ -1,3 +1,5 @@
 <body>
-  <%= @bookmarks_list.join(", ") %>
+  <% @bookmarks_list.each do |bookmark| %>
+  <a href="<%= bookmark%>"> <%= bookmark%> </a><br>
+  <% end%>
 </body>
